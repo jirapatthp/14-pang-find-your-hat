@@ -34,7 +34,9 @@ function getInput() {
   const input = prompt("Which way? (w/a/s/d): ");
 
   if (!["w", "a", "s", "d"].includes(input)) {
-    console.log("Invalid input! PLease use w/a/s/d.");
+    console.log("🍓Invalid input! Please use w/a/s/d.🍓");
+	prompt("Press Enter to continue...");
+	// เพิ่มดีเลย์ เพื่อให้เห็นข้อความ ถ้าคีย์ผิด
     return null;
   }
 
@@ -99,11 +101,11 @@ if (state === "win") {
 }
 if (state === "lose") {
 	console.clear();
-	console.log("🚧Oops… This way is dangerous. You fell 🕳️ , 🍧It's okay. Try again 💪🏽");
+	console.log("🍧 Oops… This way is dangerous. You fell 🕳️ , ❤️‍🩹It's okay, try again. I've fixed it for you, so you can start over!");
 	break;
 }
 	updateBoard();
 }
 
 
-
+// Generated Board
