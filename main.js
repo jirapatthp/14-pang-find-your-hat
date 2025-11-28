@@ -35,8 +35,8 @@ function getInput() {
 
   if (!["w", "a", "s", "d"].includes(input)) {
     console.log("🍓Invalid input! Please use w/a/s/d.🍓");
-	prompt("Press Enter to continue...");
-	// เพิ่มดีเลย์ เพื่อให้เห็นข้อความ ถ้าคีย์ผิด
+    prompt("Press Enter to continue...");
+    // เพิ่มดีเลย์ เพื่อให้เห็นข้อความ ถ้าคีย์ผิด
     return null;
   }
 
@@ -75,11 +75,13 @@ function checkRules() {
   if (tile === HAT) return "win";
   // ถ้ายังไม่เจออะไร
   return "continue";
-
 }
 
 // update board
-function updateBoard() {
+function updateBoard(prevRow, prevCol) {
+  if (board[prevRow][prevCol] !== HAT && board[prevRow][prevCol] !== HOLE) {
+    board[prevRow][prevCol] = "·";   // รอยเท้า
+  }
   board[playerRow][playerCol] = PLAYER;
 }
 
@@ -101,6 +103,8 @@ function generateBoard(rows, cols) {
   const pR = Math.floor(Math.random() * rows);
   const pC = Math.floor(Math.random() * cols);
   board[pR][pC] = PLAYER;
+  playerRow = pR;
+  playerCol = pC;
 
   // 3) สุ่มตำแหน่งหมวก (ห้ามทับผู้เล่น)
   let hR, hC;
@@ -111,38 +115,32 @@ function generateBoard(rows, cols) {
 
   board[hR][hC] = HAT;
   // สุ่มหลุม (HOLE)
-const totalCells = rows * cols;
-const holeCount = Math.floor(totalCells * 0.2);  // 20% ของกระดาน
+  const totalCells = rows * cols;
+  const holeCount = Math.floor(totalCells * 0.2); // 20% ของกระดาน
 
-let placed = 0;
+  let placed = 0;
 
-while (placed < holeCount) {
-  const r = Math.floor(Math.random() * rows);
-  const c = Math.floor(Math.random() * cols);
+  while (placed < holeCount) {
+    const r = Math.floor(Math.random() * rows);
+    const c = Math.floor(Math.random() * cols);
 
-  // วางหลุมได้ต่อเมื่อช่องนั้นว่าง (EMPTY)
-  if (board[r][c] === EMPTY) {
-    board[r][c] = HOLE;
-    placed++;
+    // วางหลุมได้ต่อเมื่อช่องนั้นว่าง (EMPTY)
+    if (board[r][c] === EMPTY) {
+      board[r][c] = HOLE;
+      placed++;
+    }
   }
-}
-
 
   return board;
 }
 
-
 // // TEST AREA//
-
 
 // const testBoard = generateBoard(5, 5);
 // console.log(testBoard);
 // prompt("Enter to continue...");
 
-
 // // TEST AREA//
-
-
 
 // ============ //
 
@@ -163,30 +161,32 @@ if (mode === "2") {
   prompt("Press Enter to start the game...");
 }
 
-
 // Game play loop
 while (playing) {
-printBoard(board);
+  printBoard(board);
 
-const input = getInput();
-if (!input) continue;
+  const input = getInput();
+  if (!input) continue;
+
+  const prevRow = playerRow;
+const prevCol = playerCol;
 
 movePlayer(input);
 
 const state = checkRules();
 
 if (state === "win") {
-	console.clear();
-	console.log("☆🤠 YOU FOUND THE HAT ! ");
-	break;
+    console.clear();
+    console.log("☆🤠 YOU FOUND THE HAT ! ");
+    break;
 }
+
 if (state === "lose") {
-	console.clear();
-	console.log("🍧 Oops… This way is dangerous. You fell 🕳️ , It's okay, try again. I've fixed ❤️‍🩹it for you, so you can start over!");
-	break;
-}
-	updateBoard();
+    console.clear();
+    console.log("🍧 Oops… This way is dangerous. You fell 🕳️ , It's okay, try again. I've fixed ❤️‍🩹it for you, so you can start over!");
+    break;
 }
 
+updateBoard(prevRow, prevCol);
 
-
+}
