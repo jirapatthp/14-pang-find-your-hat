@@ -106,6 +106,7 @@
 # <p style="display: flex; align-items: center; gap: 0.5em;"><span style="font-weight:bold; color: white; background-color: lightSeaGreen; padding: 0.5rem 2rem;">WRITE YOUR THINKING PROCESS BELOW.</span><span style="font-weight:bold; color: white; background-color: lightSeaGreen; padding: 0.5rem 0;">&nbsp;</span></p>
 
 <!-- Thinking Process -->
+
 <!-- 1. Workflow Planning -->
 <!-- 2.1. Board Functions (Hardcoded) -->
 <!-- 2.2. Board Functions (Generated) -->
@@ -113,6 +114,33 @@
 <!-- 4. Movement Functions -->
 <!-- 5. Game Rule Functions -->
 <!-- 6. Game Play Loop -->
+//สรุป 1 ลองเขียนครั้งที่1
+<img src="./img/tk-1.JPG">
+<img src="./img/tk-2.JPG">
+<img src="./img/tk-3.JPG">
+<img src="./img/tk-4.JPG">
+<img src="./img/tk-5.JPG">
+<img src="./img/tk-6.JPG">
+<img src="./img/tk-7.JPG">
+<img src="./img/tk-8.JPG">
+<img src="./img/tk-9.JPG">
+<img src="./img/tk-10.JPG">
+
+
+//สรุป 2 สรุปอีกครั้ง 
+
+<img src="./img/./2-tk-1.JPG">
+<img src="./img/./2-tk-2.JPG">
+<img src="./img/./2-tk-3.JPG">
+<img src="./img/./2-tk-4.JPG">
+<img src="./img/./2-tk-5.JPG">
+<img src="./img/./2-tk-6.JPG">
+<img src="./img/./2-tk-7.JPG">
+<img src="./img/./hello-kt-js-12.jpg">
+
+
+
+
 
 [Back to Table of Contents](#table-of-contents)
 
