@@ -6,7 +6,7 @@
 		"JavaScript"
 	],
 	"license": "ISC",
-	"author": "<Your Name>",
+	"author": "14-pang",
 	"type": "module",
 	"main": "main.js",
 	"scripts": {
